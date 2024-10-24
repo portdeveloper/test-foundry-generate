@@ -85,7 +85,7 @@ if [ "$selection" -eq 0 ]; then
         exit 1
     fi
     # Extract the address from the output
-    address=$(echo "$output" | grep -oP 'Address: \K0x[0-9a-fA-F]+')
+    address=$(echo "$output" | grep -o '0x[0-9a-fA-F]\{40\}')
     if [ -z "$address" ]; then
         echo "Failed to extract address from output" >&2
         echo "$output" >&2
